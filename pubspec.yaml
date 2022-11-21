@@ -1,0 +1,14 @@
+name: precision_stopwatch
+description: A precision stopwatch to measure the difference in time (timestamps) using both milliseconds AND nanoseconds, then combining the difference in nanos to give the milliseconds decimal accuracy.
+version: 1.0.1
+homepage: https://github.com/ArcaneArts/precision_stopwatch
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+  flutter: ">=1.17.0"
+dependencies:
+  flutter:
+    sdk: flutter
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
