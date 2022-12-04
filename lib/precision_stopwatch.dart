@@ -1,6 +1,6 @@
 library precision_stopwatch;
 
-import 'package:flutter/foundation.dart';
+import 'package:fast_log/fast_log.dart';
 
 typedef AsyncVoidCallback<T> = Future<void> Function();
 typedef SyncVoidCallback<T> = void Function();
@@ -16,8 +16,8 @@ extension XFuture<T> on Future<T> {
 
     if (reporter != null) {
       reporter(ms);
-    } else if (kDebugMode) {
-      print("${tag ?? "Runner"} took ${ms.toStringAsFixed(2)}ms");
+    } else {
+      verbose("${tag ?? "Runner"} took ${ms.toStringAsFixed(2)}ms");
     }
 
     return t;
@@ -44,8 +44,8 @@ T precisionProfileResult<T>(SyncVoidCallbackR<T> cb,
 
   if (reporter != null) {
     reporter(ms);
-  } else if (kDebugMode) {
-    print("[PSW] ${tag ?? "Runner"} took ${ms.toStringAsFixed(2)}ms");
+  } else {
+    verbose("[PSW] ${tag ?? "Runner"} took ${ms.toStringAsFixed(2)}ms");
   }
   return t;
 }
@@ -58,8 +58,8 @@ Future<T> precisionProfileAsyncResult<T>(AsyncVoidCallbackR<T> cb,
 
   if (reporter != null) {
     reporter(ms);
-  } else if (kDebugMode) {
-    print("[PSW]${tag ?? "Runner"} took ${ms.toStringAsFixed(2)}ms");
+  } else {
+    verbose("[PSW]${tag ?? "Runner"} took ${ms.toStringAsFixed(2)}ms");
   }
 
   return t;
